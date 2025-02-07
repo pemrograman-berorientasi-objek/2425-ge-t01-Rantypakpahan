@@ -1,8 +1,8 @@
 package fintech.model;
 
-/**
- * @author NIM Nama
- * @author NIM Nama
+/*
+ * @author 12S23008 Ranty Insen Pakpahan
+ * @author 12S23048 Grace Caldera Situmorang
  */
 public class Account {
     String owner;
