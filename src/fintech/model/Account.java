@@ -18,6 +18,6 @@ public class Account {
     
     @Override
     public String toString() {
-        return accountName + "|" + owner + "|" + balance;
+        return accountName + "|" + owner + "|" + 0.0;
     }
 }
