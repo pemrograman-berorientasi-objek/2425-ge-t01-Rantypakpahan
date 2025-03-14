@@ -1,48 +1,20 @@
 package fintech.driver;
-import java.util.*;
-import fintech.model.*;
 
-/**
- * @author 12S23008 Ranty Insen Pakpahan
- * @author 12S23048 Grace Caldera Situmorang
- */
+import fintech.model.DigitalWallet;
+
 public class Driver2 {
-
-    public static void main(String[] _args) {
-        Scanner scanner = new Scanner(System.in);
-        Map<String, Account> accounts = new HashMap<>();
-        List<Transaction> transactions = new ArrayList<>();
-
+    public static void main(String[] args) {
+        DigitalWallet wallet = new DigitalWallet();
         
-        String command = scanner.nextLine().trim();
-        String owner = scanner.nextLine().trim();
-        String accountName = scanner.nextLine().trim();
+        // Simulasi input
+        wallet.createAccount("Wiro Sableng", "wirsab");
+        wallet.createAccount("Jaka Sembung", "jaksem");
 
-        
-        Account account = new Account(owner, accountName);
-        accounts.put(accountName, account);
+        // Menampilkan akun yang dicari sebelum menampilkan semua akun
+        // wallet.findAccount("Milkyman"); // Tidak ada output
+        wallet.findAccount("JAKSEM");   // Menampilkan akun "jaksem"
 
-        
-        command = scanner.nextLine().trim();
-        String transAccountName = scanner.nextLine().trim();
-        double amount = Double.parseDouble(scanner.nextLine().trim());
-        String postedAt = scanner.nextLine().trim();
-        String note = scanner.nextLine().trim();
-
-       
-        account.balance += amount;
-
-       
-        Transaction transaction = new Transaction(transAccountName, amount, postedAt, note, account.balance);
-        transactions.add(transaction);
-
-        
-        System.out.println(account);
-        System.out.println(transaction);
-
-        scanner.close();
-
+        // Menampilkan semua akun setelah pencarian
+        wallet.displayAccounts();
     }
-
-    }
-
+}

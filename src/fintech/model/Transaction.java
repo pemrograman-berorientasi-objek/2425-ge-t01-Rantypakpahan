@@ -21,6 +21,7 @@ public class Transaction {
         this.note = note;
         this.balance = balance;
     }
+    
 
     @Override
     public String toString() {

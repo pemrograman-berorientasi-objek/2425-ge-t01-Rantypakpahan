@@ -1,30 +1,33 @@
 package fintech.driver;
-
-import fintech.model.Account;
-import fintech.model.Transaction;
-
+import fintech.model.DigitalWallet;
 import java.util.Scanner;
+
 /**
- * @author 12S23008 Ranty Insen Pakpahan
- * @author 12S23048 Grace Caldera Situmorang
+ * @author NIM Nama
+ * @author NIM Nama
  */
 public class Driver1 {
-
-    public static void main(String[] _args) {
-
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String command = scanner.nextLine();
-        String owner = scanner.nextLine();
+        DigitalWallet wallet = new DigitalWallet();
 
-        String accountName = scanner.nextLine();
-        
-        if (command.equals("create-account")) {
-            System.out.println(accountName + "|" + owner + "|" + 0.0 );
+        String input;
+        while (true) {
+            input = scanner.nextLine();
+            if (input.equals("---")) {
+                break;
+            }
 
-        } else {
-            System.out.println("Perintah tidak valid");
+            String[] parts = input.split("#");
+            if (parts.length == 3 && parts[0].equals("create-account")) {
+                String owner = parts[1];
+                String accountName = parts[2];
+                wallet.createAccount(owner, accountName);
+            }
         }
 
+        // Menampilkan semua akun setelah input selesai
+        wallet.displayAccounts();
+        scanner.close();
     }
-
 }
